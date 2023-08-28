@@ -1,0 +1,58 @@
+{
+  "categories": [
+    {
+      "name": "Women Dress",
+      "subCategory": [
+        "Wedding & Event", "Tops & Sets", "Watches"
+      ]
+    },
+    {
+      "name": "Men Clothing & Fashion",
+      "subCategory": [
+        "Outwear & Jacket", "Formals", "Accessories"
+      ]
+    },
+    {
+      "name": "Computers & Accessories",
+      "subCategory": [
+        "Shoes & Bags", "Baby Clothing", "Girls Toys"
+      ]
+    },
+    {
+      "name": "Automobile",
+      "subCategory": [
+        "Shoes & Bags", "Baby Clothing", "Girls Toys"
+      ]
+    },
+    {
+      "name": "Kids Toys",
+      "subCategory": [
+        "Shoes & Bags", "Baby Clothing", "Girls Toys"
+      ]
+    },
+    {
+      "name": "Sports",
+      "subCategory": [
+        "Shoes & Bags", "Baby Clothing", "Girls Toys"
+      ]
+    },
+    {
+      "name": "Make Up",
+      "subCategory": [
+        "Shoes & Bags", "Baby Clothing", "Girls Toys"
+      ]
+    },
+    {
+      "name": "Cell Phone",
+      "subCategory": [
+        "Shoes & Bags", "Baby Clothing", "Girls Toys"
+      ]
+    },
+    {
+      "name": "Furniture",
+      "subCategory": [
+        "Shoes & Bags", "Baby Clothing", "Girls Toys"
+      ]
+    }
+  ]
+}
