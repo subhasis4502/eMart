@@ -22,7 +22,11 @@ class HomeScreen extends StatelessWidget {
                 Container(
                   alignment: Alignment.center,
                   height: 60,
-                  color: lightGrey,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(
+                        10.0), // Adjust the radius as needed
+                    color: whiteColor,
+                  ),
                   child: TextFormField(
                     decoration: const InputDecoration(
                       border: InputBorder.none,
@@ -34,6 +38,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                10.heightBox,
                 Expanded(
                   child: SingleChildScrollView(
                     physics: const BouncingScrollPhysics(),
@@ -67,27 +72,28 @@ class HomeScreen extends StatelessWidget {
                                       height: context.screenHeight * 0.15,
                                       width: context.screenWidth / 2.5,
                                       icon: index == 0 ? icBoy : icGirl,
-                                      title: index == 0 ? menClothingFashion : womenDress,
-                                    ))
-                        ),
+                                      title: index == 0
+                                          ? menClothingFashion
+                                          : womenDress,
+                                    ))),
                         10.heightBox,
-                        VxSwiper.builder(
-                            aspectRatio: 16 / 9,
-                            autoPlay: false,
-                            height: 120,
-                            itemCount: secondSlidersList.length,
-                            itemBuilder: (context, index) {
-                              return Image.asset(
-                                secondSlidersList[index],
-                                fit: BoxFit.fill,
-                              )
-                                  .box
-                                  .roundedSM
-                                  .clip(Clip.antiAlias)
-                                  .margin(
-                                      const EdgeInsets.symmetric(horizontal: 6))
-                                  .make();
-                            }),
+                        // VxSwiper.builder(
+                        //     aspectRatio: 16 / 9,
+                        //     autoPlay: false,
+                        //     height: 120,
+                        //     itemCount: secondSlidersList.length,
+                        //     itemBuilder: (context, index) {
+                        //       return Image.asset(
+                        //         secondSlidersList[index],
+                        //         fit: BoxFit.fill,
+                        //       )
+                        //           .box
+                        //           .roundedSM
+                        //           .clip(Clip.antiAlias)
+                        //           .margin(
+                        //               const EdgeInsets.symmetric(horizontal: 6))
+                        //           .make();
+                        //     }),
                         10.heightBox,
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -137,9 +143,9 @@ class HomeScreen extends StatelessWidget {
                         ),
                         20.heightBox,
                         Container(
-                          padding: EdgeInsets.all(12),
+                          padding: const EdgeInsets.all(12),
                           width: double.infinity,
-                          decoration: BoxDecoration(color: redColor),
+                          decoration: const BoxDecoration(color: redColor),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -158,18 +164,18 @@ class HomeScreen extends StatelessWidget {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Image.asset(
-                                                imgP1,
+                                                imgP4,
                                                 width: 150,
                                                 fit: BoxFit.cover,
                                               ),
                                               10.heightBox,
-                                              "Laptop 4GB/64GB"
+                                              "Brown High-heeled"
                                                   .text
                                                   .fontFamily(semibold)
                                                   .color(darkFontGrey)
                                                   .make(),
                                               10.heightBox,
-                                              "Rs. 40,000"
+                                              "Rs. 4000"
                                                   .text
                                                   .color(redColor)
                                                   .fontFamily(bold)
@@ -191,8 +197,10 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         20.heightBox,
+                        allProducts.text.color(redColor).fontFamily(bold).size(18).make(),
+                        10.heightBox,
                         GridView.builder(
-                          physics: const NeverScrollableScrollPhysics(),
+                            physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             itemCount: 6,
                             gridDelegate:
@@ -205,16 +213,21 @@ class HomeScreen extends StatelessWidget {
                               return Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Image.asset(imgP5,height: 200, width: 200, fit: BoxFit.cover,),
+                                  Image.asset(
+                                    imgP5,
+                                    height: 200,
+                                    width: 200,
+                                    fit: BoxFit.cover,
+                                  ),
                                   const Spacer(),
                                   10.heightBox,
-                                  "Laptop 4GB/64GB"
+                                  "Premium Lather Bags"
                                       .text
                                       .fontFamily(semibold)
                                       .color(darkFontGrey)
                                       .make(),
                                   10.heightBox,
-                                  "Rs. 40,000"
+                                  "Rs. 19,999"
                                       .text
                                       .color(redColor)
                                       .fontFamily(bold)
@@ -222,11 +235,11 @@ class HomeScreen extends StatelessWidget {
                                       .make(),
                                   10.heightBox,
                                 ],
-                              ).box
+                              )
+                                  .box
                                   .white
                                   .margin(
-                                  const EdgeInsets.symmetric(
-                                      horizontal: 4))
+                                      const EdgeInsets.symmetric(horizontal: 4))
                                   .roundedSM
                                   .padding(const EdgeInsets.all(12))
                                   .make();

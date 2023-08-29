@@ -10,22 +10,18 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          OutlinedButton(
-            style: OutlinedButton.styleFrom(
-              side: BorderSide(
-                color: whiteColor,
-              )
-            ),
-            onPressed: () async {
-              await Get.put(AuthController()).signoutMethod(context);
-              Get.offAll(LoginScreen());
-            },
-            child: logout.text.fontFamily(semibold).white.make(),
-          ),
-        ],
+      body: Center(
+        child: OutlinedButton(
+          style: OutlinedButton.styleFrom(
+              side: const BorderSide(
+            color: whiteColor,
+          )),
+          onPressed: () async {
+            await Get.put(AuthController()).signoutMethod(context);
+            Get.offAll(const LoginScreen());
+          },
+          child: logout.text.fontFamily(semibold).white.make(),
+        ),
       ),
     );
   }
