@@ -26,7 +26,7 @@ const featuredImages2 = [imgS4, imgS5, imgS6];
 const featuredTitles1 = [womenDress, girlsDress, girlsWatches];
 const featuredTitles2 = [boysGlasses, suits, tShirts];
 
-const categoriesList = [womenDress, menClothingFashion, compAccess, automobile, kidtoys, sports, makup, cellphone, furniture];
+const categoriesList = [womenDress, menClothingFashion, jewelery, eyewears, kidfashion, sportswear, makup, accesories, shoes];
 const categoryImages = [
   imgS4,
   imgFc1,

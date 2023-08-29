@@ -36,9 +36,9 @@ class CategoryScreen extends StatelessWidget {
                     categoryImages[index],
                     height: 120,
                     width: 200,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fill,
                   ),
-                  10.heightBox,
+                  20.heightBox,
                   categoriesList[index].text.color(darkFontGrey).align(TextAlign.center).make(),
                 ],
               ).box.white.rounded.clip(Clip.antiAlias).outerShadowSm.make().onTap(() {
