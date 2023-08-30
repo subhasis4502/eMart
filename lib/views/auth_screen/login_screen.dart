@@ -51,8 +51,8 @@ class LoginScreen extends StatelessWidget {
                   5.heightBox,
                   controller.isLoading.value
                       ? const CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation(redColor),
-                  )
+                          valueColor: AlwaysStoppedAnimation(redColor),
+                        )
                       : ourButton(
                           color: redColor,
                           title: login,
@@ -102,7 +102,19 @@ class LoginScreen extends StatelessWidget {
                                   width: 30,
                                 ),
                               ),
-                            )),
+                            ).onTap(() async {
+                              controller.isLoading(true);
+                              await controller
+                                  .loginWithGoogleMethod(context: context)
+                                  .then((value) {
+                                if (value != null) {
+                                  VxToast.show(context, msg: loggedin);
+                                  Get.offAll(Home());
+                                } else {
+                                  controller.isLoading(false);
+                                }
+                              });
+                            })),
                   )
                 ],
               )
