@@ -81,6 +81,7 @@ class AuthController extends GetxController {
   signoutMethod(context) async {
     try{
       await auth.signOut();
+      VxToast.show(context, msg: "Sign out successfully");
     } on FirebaseAuthException catch (e) {
       VxToast.show(context, msg: e.toString());
     }

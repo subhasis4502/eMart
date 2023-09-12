@@ -197,7 +197,11 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         20.heightBox,
-                        allProducts.text.color(redColor).fontFamily(bold).size(18).make(),
+                        allProducts.text
+                            .color(redColor)
+                            .fontFamily(bold)
+                            .size(18)
+                            .make(),
                         10.heightBox,
                         GridView.builder(
                             physics: const NeverScrollableScrollPhysics(),

@@ -5,7 +5,12 @@ import 'consts/consts.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+      options: FirebaseOptions(
+          apiKey: 'AIzaSyBBBW04vR9vOWQNAbVv_gZopqznS-FcYUs',
+          appId: '1:557272084527:android:e88b8c2b446a71bf1616da',
+          messagingSenderId: '',
+          projectId: 'emart-1d469'));
   runApp(const MyApp());
 }
 
@@ -18,10 +23,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: appname,
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.transparent,
-        appBarTheme: const AppBarTheme(backgroundColor: Colors.transparent),
-        fontFamily: regular
-      ),
+          scaffoldBackgroundColor: Colors.transparent,
+          appBarTheme: const AppBarTheme(backgroundColor: Colors.transparent),
+          fontFamily: regular),
       home: const SplashScreen(),
     );
   }
