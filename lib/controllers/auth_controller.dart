@@ -26,6 +26,8 @@ class AuthController extends GetxController {
     UserCredential? userCredential;
     try {
       final GoogleSignIn googleSignIn = GoogleSignIn();
+      await googleSignIn.signOut();
+
       final GoogleSignInAccount? googleSignInAccount = await googleSignIn.signIn();
 
       if(googleSignInAccount != null) {
@@ -74,6 +76,9 @@ class AuthController extends GetxController {
       'email': email,
       'password': password,
       'imageUrl': '',
+      'cart_count': '00',
+      'wishlist_count': '00',
+      'order_count': '00',
     });
   }
 

@@ -49,3 +49,10 @@ const searchAnything = "Search anything...",
     eyewears = "Glasses and Eyewears",
     accesories = "Accesories",
     shoes = "Sneakers & Shoes";
+
+
+// Profile page
+
+const wishlist = "My Wishlist",
+    orders = "My Orders",
+    message = "Messages";

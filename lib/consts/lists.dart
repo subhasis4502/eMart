@@ -38,3 +38,7 @@ const categoryImages = [
   imgFc6,
   imgFc9
 ];
+
+const profileButtonsList = [orders, wishlist, message];
+const profileButtonsIcon = [icOrder, icOrder, icMessages];
+
