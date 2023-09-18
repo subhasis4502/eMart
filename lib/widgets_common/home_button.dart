@@ -2,11 +2,9 @@ import 'package:emart_app/consts/consts.dart';
 import 'package:emart_app/views/category_screen/category_details.dart';
 import 'package:emart_app/controllers/product_controller.dart';
 
-
 import 'package:get/get.dart';
 
 Widget homeButtons({width, height, icon, String? title, onPress}) {
-
   var controller = Get.find<ProductController>();
 
   return Column(

@@ -5,7 +5,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthController extends GetxController {
-
   var isLoading = false.obs;
   // Login
   Future<UserCredential?> loginMethod({email, password, context}) async {
@@ -28,23 +27,30 @@ class AuthController extends GetxController {
       final GoogleSignIn googleSignIn = GoogleSignIn();
       await googleSignIn.signOut();
 
-      final GoogleSignInAccount? googleSignInAccount = await googleSignIn.signIn();
+      final GoogleSignInAccount? googleSignInAccount =
+          await googleSignIn.signIn();
 
-      if(googleSignInAccount != null) {
-        final GoogleSignInAuthentication googleSignInAuthentication = await googleSignInAccount.authentication;
+      if (googleSignInAccount != null) {
+        final GoogleSignInAuthentication googleSignInAuthentication =
+            await googleSignInAccount.authentication;
         final AuthCredential credential = GoogleAuthProvider.credential(
-          accessToken: googleSignInAuthentication.accessToken,
-          idToken: googleSignInAuthentication.idToken
-        );
+            accessToken: googleSignInAuthentication.accessToken,
+            idToken: googleSignInAuthentication.idToken);
 
         try {
           userCredential = await auth.signInWithCredential(credential);
-        } on FirebaseAuthException catch(e) {
+          print(userCredential.user);
+          storeuserData(
+              email: userCredential.user?.email,
+              name: userCredential.user?.displayName,
+              password: '',
+              profileImg: userCredential.user?.photoURL);
+        } on FirebaseAuthException catch (e) {
           VxToast.show(context, msg: e.toString());
         }
       }
-    } on FirebaseAuthException catch(e) {
-      if(e.code == 'account-exist-with-different-credential') {
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'account-exist-with-different-credential') {
         VxToast.show(context, msg: "Account already exist");
       }
       VxToast.show(context, msg: e.toString());
@@ -67,7 +73,7 @@ class AuthController extends GetxController {
   }
 
   // Storing data to firestore
-  storeuserData({name, email, password}) async {
+  storeuserData({name, email, password, profileImg}) async {
     DocumentReference store =
         await firestore.collection(usersCollection).doc(currentUser!.uid);
     store.set({
@@ -75,7 +81,7 @@ class AuthController extends GetxController {
       'name': name,
       'email': email,
       'password': password,
-      'imageUrl': '',
+      'imageUrl': profileImg,
       'cart_count': '00',
       'wishlist_count': '00',
       'order_count': '00',
@@ -84,8 +90,9 @@ class AuthController extends GetxController {
 
   // Sign Out
   signoutMethod(context) async {
-    try{
+    try {
       await auth.signOut();
+      await GoogleSignIn().signOut();
       VxToast.show(context, msg: "Sign out successfully");
     } on FirebaseAuthException catch (e) {
       VxToast.show(context, msg: e.toString());
